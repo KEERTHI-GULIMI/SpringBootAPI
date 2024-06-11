@@ -2,6 +2,7 @@ package com.siemens.SpringBootAPI.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.*;
+import jdk.jshell.Snippet;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -33,5 +34,6 @@ public class Product {
     private int quantity;
 
     private String status;
+
 
 }
