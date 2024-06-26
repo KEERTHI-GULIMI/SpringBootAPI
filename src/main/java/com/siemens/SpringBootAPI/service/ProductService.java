@@ -213,9 +213,7 @@ public class ProductService {
                 Iterator<Product> iterator = result.iterator();
                 while (iterator.hasNext()) {
                     Product item = iterator.next();
-                    if (minPrice <= item.getPrice() && item.getPrice() <= maxPrice) {
-
-                    } else {
+                    if (!(minPrice <= item.getPrice() && item.getPrice() <= maxPrice)) {
                         iterator.remove();
                     }
                 }
