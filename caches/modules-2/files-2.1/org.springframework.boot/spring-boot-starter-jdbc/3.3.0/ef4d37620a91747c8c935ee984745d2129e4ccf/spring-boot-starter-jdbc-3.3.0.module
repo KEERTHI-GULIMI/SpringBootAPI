@@ -1,0 +1,202 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework.boot",
+    "module": "spring-boot-starter-jdbc",
+    "version": "3.3.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.6.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter",
+          "version": {
+            "requires": "3.3.0"
+          }
+        },
+        {
+          "group": "com.zaxxer",
+          "module": "HikariCP",
+          "version": {
+            "requires": "5.1.0"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-jdbc",
+          "version": {
+            "requires": "6.1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-starter-jdbc-3.3.0.jar",
+          "url": "spring-boot-starter-jdbc-3.3.0.jar",
+          "size": 4768,
+          "sha512": "022d20860e567a11e1baf3a8394e77b8fcd43e256c29550ab4ed7397339c3fec4f605d2fbf04de90a375cf91e3dfa1bff8ddd1a4d34774a0c51d00eb2e35b45a",
+          "sha256": "2c7b4bfee47e6972cb201fd8376ebeb6030e67157a3a0310fae1cd26b24eea3a",
+          "sha1": "0d2521191455fbf05c8d5bb49f39cb6d8fcb004b",
+          "md5": "a00706f53aeda2d2fbdf3fc554a8d00f"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter",
+          "version": {
+            "requires": "3.3.0"
+          }
+        },
+        {
+          "group": "com.zaxxer",
+          "module": "HikariCP",
+          "version": {
+            "requires": "5.1.0"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-jdbc",
+          "version": {
+            "requires": "6.1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-boot-starter-jdbc-3.3.0.jar",
+          "url": "spring-boot-starter-jdbc-3.3.0.jar",
+          "size": 4768,
+          "sha512": "022d20860e567a11e1baf3a8394e77b8fcd43e256c29550ab4ed7397339c3fec4f605d2fbf04de90a375cf91e3dfa1bff8ddd1a4d34774a0c51d00eb2e35b45a",
+          "sha256": "2c7b4bfee47e6972cb201fd8376ebeb6030e67157a3a0310fae1cd26b24eea3a",
+          "sha1": "0d2521191455fbf05c8d5bb49f39cb6d8fcb004b",
+          "md5": "a00706f53aeda2d2fbdf3fc554a8d00f"
+        }
+      ]
+    },
+    {
+      "name": "mavenOptionalApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-jdbc-3.3.0.jar",
+          "url": "spring-boot-starter-jdbc-3.3.0.jar",
+          "size": 4768,
+          "sha512": "022d20860e567a11e1baf3a8394e77b8fcd43e256c29550ab4ed7397339c3fec4f605d2fbf04de90a375cf91e3dfa1bff8ddd1a4d34774a0c51d00eb2e35b45a",
+          "sha256": "2c7b4bfee47e6972cb201fd8376ebeb6030e67157a3a0310fae1cd26b24eea3a",
+          "sha1": "0d2521191455fbf05c8d5bb49f39cb6d8fcb004b",
+          "md5": "a00706f53aeda2d2fbdf3fc554a8d00f"
+        }
+      ],
+      "capabilities": [
+        {
+          "group": "org.springframework.boot",
+          "name": "spring-boot-starter-jdbc-maven-optional",
+          "version": "3.3.0"
+        }
+      ]
+    },
+    {
+      "name": "mavenOptionalRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-jdbc-3.3.0.jar",
+          "url": "spring-boot-starter-jdbc-3.3.0.jar",
+          "size": 4768,
+          "sha512": "022d20860e567a11e1baf3a8394e77b8fcd43e256c29550ab4ed7397339c3fec4f605d2fbf04de90a375cf91e3dfa1bff8ddd1a4d34774a0c51d00eb2e35b45a",
+          "sha256": "2c7b4bfee47e6972cb201fd8376ebeb6030e67157a3a0310fae1cd26b24eea3a",
+          "sha1": "0d2521191455fbf05c8d5bb49f39cb6d8fcb004b",
+          "md5": "a00706f53aeda2d2fbdf3fc554a8d00f"
+        }
+      ],
+      "capabilities": [
+        {
+          "group": "org.springframework.boot",
+          "name": "spring-boot-starter-jdbc-maven-optional",
+          "version": "3.3.0"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-jdbc-3.3.0-javadoc.jar",
+          "url": "spring-boot-starter-jdbc-3.3.0-javadoc.jar",
+          "size": 4740,
+          "sha512": "aacbfaeca3ed0181ff033b8545e9ea7d3f74c8e76d2fcb663724579a26489e139bb92be6e921a433e45d0e681eae0a9351b8629922311c806031fb998701850f",
+          "sha256": "d088a00bf5ba6bd391f11834943b9c4aaf92dabbc763e089cbb9e2b8eeb5f8ed",
+          "sha1": "dfc18695bd5f2027190271be26feb94d19d3cef5",
+          "md5": "5598fc638f4f48104a9fb9aae97c90fc"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "spring-boot-starter-jdbc-3.3.0-sources.jar",
+          "url": "spring-boot-starter-jdbc-3.3.0-sources.jar",
+          "size": 4739,
+          "sha512": "60cc232f398a612c6dbabb8128d2d529d339484df3f233a15abee69267979e670c4fa118685e9b43a61ebfb477b14d97209dd27444776b1b0684d5d8b91670eb",
+          "sha256": "daf6cddfc4943f87117cf11d20e59986bee0b53f6a4924148d076629369364e8",
+          "sha1": "dbb483925df85ce16b62a5d908fc82040549d509",
+          "md5": "55ca09d45eb02e9c560ed33d4c93d079"
+        }
+      ]
+    }
+  ]
+}

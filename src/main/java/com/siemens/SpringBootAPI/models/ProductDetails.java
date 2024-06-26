@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class ProductDetails {
 
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -15,6 +15,8 @@ public class ProductDetails {
     private int quantity;
 
     private String status;
+
+    private String category;
 
 }
 

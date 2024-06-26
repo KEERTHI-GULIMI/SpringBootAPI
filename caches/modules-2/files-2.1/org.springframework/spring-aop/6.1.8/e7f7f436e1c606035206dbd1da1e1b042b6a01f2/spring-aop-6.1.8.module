@@ -1,0 +1,96 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-aop",
+    "version": "6.1.8",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.7"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "6.1.8"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "6.1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-aop-6.1.8.jar",
+          "url": "spring-aop-6.1.8.jar",
+          "size": 416176,
+          "sha512": "46b540a0d9b2567024c048f0e061bc3c57114cf1f8f58d6aaf75c727baa105b96cad20bdc27501422ade65372ed6a8bc7a65369d3cc9dd57595c63ad0ee47b76",
+          "sha256": "34a94cc105d68316a6a7dfbd0df58206e46acc5050e00cdb12d50bc34c9901bf",
+          "sha1": "ef793a21e405a88d9d32b92cb459c845ee12b271",
+          "md5": "4589ec29a6d577fbd26961680c14c6c7"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "6.1.8"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "6.1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-aop-6.1.8.jar",
+          "url": "spring-aop-6.1.8.jar",
+          "size": 416176,
+          "sha512": "46b540a0d9b2567024c048f0e061bc3c57114cf1f8f58d6aaf75c727baa105b96cad20bdc27501422ade65372ed6a8bc7a65369d3cc9dd57595c63ad0ee47b76",
+          "sha256": "34a94cc105d68316a6a7dfbd0df58206e46acc5050e00cdb12d50bc34c9901bf",
+          "sha1": "ef793a21e405a88d9d32b92cb459c845ee12b271",
+          "md5": "4589ec29a6d577fbd26961680c14c6c7"
+        }
+      ]
+    }
+  ]
+}

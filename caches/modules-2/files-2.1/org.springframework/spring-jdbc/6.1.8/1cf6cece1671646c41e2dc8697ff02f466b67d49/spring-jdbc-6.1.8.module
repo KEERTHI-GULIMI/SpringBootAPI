@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-jdbc",
+    "version": "6.1.8",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.7"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "6.1.8"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "6.1.8"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "6.1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-jdbc-6.1.8.jar",
+          "url": "spring-jdbc-6.1.8.jar",
+          "size": 467337,
+          "sha512": "0edf95c5a77ab9c56a660f454d874f4d10010a31db5b08b6cb2baea3ccb187a52e4b2c0c197307a35619d39fa04a33e24c3e5213ceb6e7ce66fa35926f9bc538",
+          "sha256": "67731c6695aba1487c769275723b71df10f4f35bac191903cc603d47afaf4574",
+          "sha1": "a744f02da5a64f2b497f143c461a5d5d675051e6",
+          "md5": "42b3ddb0c00a8a00dc6d59000aa0c00d"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "6.1.8"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "6.1.8"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "6.1.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-jdbc-6.1.8.jar",
+          "url": "spring-jdbc-6.1.8.jar",
+          "size": 467337,
+          "sha512": "0edf95c5a77ab9c56a660f454d874f4d10010a31db5b08b6cb2baea3ccb187a52e4b2c0c197307a35619d39fa04a33e24c3e5213ceb6e7ce66fa35926f9bc538",
+          "sha256": "67731c6695aba1487c769275723b71df10f4f35bac191903cc603d47afaf4574",
+          "sha1": "a744f02da5a64f2b497f143c461a5d5d675051e6",
+          "md5": "42b3ddb0c00a8a00dc6d59000aa0c00d"
+        }
+      ]
+    }
+  ]
+}
