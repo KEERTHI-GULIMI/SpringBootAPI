@@ -2,9 +2,9 @@ package com.siemens.SpringBootAPI.service;
 
 import com.siemens.SpringBootAPI.controller.ProductController;
 import com.siemens.SpringBootAPI.entity.Order;
+import com.siemens.SpringBootAPI.entity.Product;
 import com.siemens.SpringBootAPI.entity.User;
 import com.siemens.SpringBootAPI.models.*;
-import com.siemens.SpringBootAPI.entity.Product;
 import com.siemens.SpringBootAPI.repository.OrderRepository;
 import com.siemens.SpringBootAPI.repository.ProductRepository;
 import com.siemens.SpringBootAPI.repository.UserRepository;
@@ -64,104 +64,109 @@ public class ProductService {
         List<User> allUsers = userRepository.findAll();
         Report report = new Report();
 
-        for (int i = 0; i < 5; i++) {
-            int finalI = i;
-            executor.execute(new Runnable() {
-                public void run() {
+        executor.execute(() -> {
 
-                    allRegisteredUsers(finalI, allUsers, report);
+            allRegisteredUsers(allUsers, report);
+        });
 
-                    allUniquecategories(finalI, allProducts, report);
+        executor.execute(() ->
+        {
+            allUniquecategories(allProducts, report);
 
-                    totalOrdersPlaced(finalI, allOrders, report);
+        });
 
-                    AveragePriceOfOrders(finalI, allProducts, allOrders, report);
+        executor.execute(() ->
+        {
+            totalOrdersPlaced(allOrders, report);
 
-                    totalPriceOfOrders(finalI, allProducts, allOrders, report);
-                }
+        });
 
-            });
-        }
+        executor.execute(() ->
+        {
+            AveragePriceOfOrders(allProducts, allOrders, report);
+
+        });
+
+        executor.execute(() ->
+        {
+            totalPriceOfOrders(allProducts, allOrders, report);
+        });
 
         executor.shutdown();
-
         return report;
     }
 
-    public void allUniquecategories(int finalI, List<Product> allProducts, Report report) {
+    public void allUniquecategories(List<Product> allProducts, Report report) {
 
         Set<String> productCategory = new HashSet<String>();
         List<String> productCategory1 = new ArrayList<>();
 
-        if (finalI == 1) {
-            allProducts.forEach(n1 -> {
-                productCategory.add(n1.getCategory());
-            });
+        allProducts.forEach(n1 -> {
+            productCategory.add(n1.getCategory());
+        });
 
-            if (!productCategory1.contains(productCategory)) {
-                productCategory1.add(productCategory.toString());
-            }
-            synchronized (report) {
-                report.setUniqueCategories(productCategory1);
-            }
+        if (!productCategory1.contains(productCategory)) {
+            productCategory1.add(productCategory.toString());
         }
+        synchronized (report) {
+            report.setUniqueCategories(productCategory1);
+        }
+
     }
 
-    public void totalOrdersPlaced(int finalI, List<Order> allOrders, Report report) {
 
-        if (finalI == 2) {
-            synchronized (report) {
-                report.setTotalNoOfOrders(allOrders.size());
-            }
+    public void totalOrdersPlaced(List<Order> allOrders, Report report) {
+
+        synchronized (report) {
+            report.setTotalNoOfOrders(allOrders.size());
         }
+
     }
 
-    public void AveragePriceOfOrders(int finalI, List<Product> allProducts, List<Order> allOrders, Report report) {
+    public void AveragePriceOfOrders(List<Product> allProducts, List<Order> allOrders, Report report) {
         AtomicReference<Double> averageSum = new AtomicReference<>(0.0);
         AtomicReference<Double> totalSum1 = new AtomicReference<>(0.0);
 
-        if (finalI == 3) {
-            Map<Integer, Double> productPriceMap = allProducts.stream().collect(Collectors.toMap(Product::getId, Product::getPrice));
-            allOrders.forEach(order -> {
-                Integer productId = order.getProductId();
-                Double productPrice = productPriceMap.get(productId);
-                if (productPrice != null) {
-                    totalSum1.updateAndGet(v -> v + order.getOrderQuantity() * productPrice);
-                }
-            });
-            int totalQuantity = allOrders.stream().mapToInt(Order::getOrderQuantity).sum();
-            if (totalQuantity > 0) {
-                averageSum.set(totalSum1.get() / totalQuantity);
+
+        Map<Integer, Double> productPriceMap = allProducts.stream().collect(Collectors.toMap(Product::getId, Product::getPrice));
+        allOrders.forEach(order -> {
+            Integer productId = order.getProductId();
+            Double productPrice = productPriceMap.get(productId);
+            if (productPrice != null) {
+                totalSum1.updateAndGet(v -> v + order.getOrderQuantity() * productPrice);
             }
+        });
 
-            report.setAveragePriceOfOrders(averageSum.get());
+        int totalQuantity = allOrders.stream().mapToInt(Order::getOrderQuantity).sum();
+        if (totalQuantity > 0) {
+            averageSum.set(totalSum1.get() / totalQuantity);
         }
+
+        report.setAveragePriceOfOrders(averageSum.get());
+
     }
 
-    public void allRegisteredUsers(int finalI, List<User> allUsers, Report report) {
-        if (finalI == 0) {
-            Map<Integer, String> userIdandNameMap = allUsers.stream().collect(Collectors.toMap(User::getUserId, User::getUserName));
-            report.setAllRegistereduserMap(userIdandNameMap);
-        }
+    public void allRegisteredUsers(List<User> allUsers, Report report) {
+
+        Map<Integer, String> userIdandNameMap = allUsers.stream().collect(Collectors.toMap(User::getUserId, User::getUserName));
+        report.setAllRegistereduserMap(userIdandNameMap);
+
     }
 
-
-    public void totalPriceOfOrders(int finalI, List<Product> allProducts, List<Order> allOrders, Report report) {
+    public void totalPriceOfOrders(List<Product> allProducts, List<Order> allOrders, Report report) {
         AtomicReference<Double> totalSum = new AtomicReference<>(0.0);
 
-        if (finalI == 4) {
-            Map<Integer, Double> productPriceMap = allProducts.stream().collect(Collectors.toMap(Product::getId, Product::getPrice));
-            allOrders.forEach(order -> {
-                Integer productId = order.getProductId();
-                Double productPrice = productPriceMap.get(productId);
-                if (productPrice != null) {
-                    totalSum.updateAndGet(v -> v + order.getOrderQuantity() * productPrice);
-                }
-            });
+        Map<Integer, Double> productPriceMap = allProducts.stream().collect(Collectors.toMap(Product::getId, Product::getPrice));
+        allOrders.forEach(order -> {
+            Integer productId = order.getProductId();
+            Double productPrice = productPriceMap.get(productId);
+            if (productPrice != null) {
+                totalSum.updateAndGet(v -> v + order.getOrderQuantity() * productPrice);
+            }
+        });
 
-            report.setTotalPriceOfOrders(totalSum.get());
+        report.setTotalPriceOfOrders(totalSum.get());
 
-        }
     }
 
     public List<ProductDetails> getAllProducts(String category, String sortBy, String sortType, Double minPrice, Double maxPrice) {
@@ -237,7 +242,7 @@ public class ProductService {
 
         return productDetailsList;
     }
-    
+
     public ProductDetails getProductById(Integer id) throws myException {
 
         Optional<Product> optionalProduct = productRepository.findById(id);
@@ -248,6 +253,7 @@ public class ProductService {
             logger.error("error message");
             throw new myException("Provided Product Id " + id + " is not present to fetch");
         }
+
     }
 
     public ProductDetails updateProduct(Integer id, UpdateProductRequest updatedProduct) throws myCustomException {
@@ -260,7 +266,7 @@ public class ProductService {
                 product.setStatus("Not Available");
             } else if (updatedProduct.getQuantity() > 0) {
                 product.setStatus("Available");
-            } else if (updatedProduct.getQuantity() < 0) {
+            } else {
                 throw new myCustomException("Quantity  must be positive number only ");
             }
             product.setName(updatedProduct.getName());
