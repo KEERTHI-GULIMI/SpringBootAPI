@@ -1,5 +1,6 @@
 package com.siemens.SpringBootAPI.entity;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -35,6 +36,5 @@ public class Product {
     private String status;
 
     private String category;
-
 
 }

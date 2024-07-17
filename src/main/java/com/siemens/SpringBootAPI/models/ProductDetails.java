@@ -1,6 +1,7 @@
 package com.siemens.SpringBootAPI.models;
 
 
+import com.siemens.SpringBootAPI.FactoryDesign.Categories;
 import lombok.Data;
 
 @Data

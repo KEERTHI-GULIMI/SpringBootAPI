@@ -41,7 +41,7 @@ public class OrderService {
             if (orderRequest.getOrderQuantity() <= product.getQuantity()) {
                 int quantity = (product.getQuantity() - orderRequest.getOrderQuantity());
                 product.setQuantity(quantity);
-                if(product.getQuantity()==0){
+                if (product.getQuantity() == 0) {
                     product.setStatus("Not Available");
                 }
                 order.setUserId(userId);
@@ -144,7 +144,7 @@ public class OrderService {
 
             return orderDetailsList;
 
-        }else{
+        } else {
             throw new myException(" user is not present ");
         }
     }

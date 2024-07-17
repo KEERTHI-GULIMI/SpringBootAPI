@@ -1,5 +1,6 @@
 package com.siemens.SpringBootAPI.models;
 
+import com.siemens.SpringBootAPI.FactoryDesign.Categories;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,5 +14,5 @@ public class ProductRequest {
 
     private int quantity;
 
-    private String category;
+    private Categories category;
 }

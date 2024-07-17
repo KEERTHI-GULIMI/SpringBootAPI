@@ -1,5 +1,7 @@
 package com.siemens.SpringBootAPI.service;
 
+import com.siemens.SpringBootAPI.FactoryDesign.Categories;
+import com.siemens.SpringBootAPI.FactoryDesign.ProductCategoryFactory;
 import com.siemens.SpringBootAPI.controller.ProductController;
 import com.siemens.SpringBootAPI.entity.Order;
 import com.siemens.SpringBootAPI.entity.Product;
@@ -37,20 +39,19 @@ public class ProductService {
 
     public ProductDetails saveProduct(ProductRequest productRequest) throws myCustomException {
 
-        Product product = new Product();
+        Product product = ProductCategoryFactory.getProductFactory(productRequest.getCategory()).getproduct();
 
         if (productRequest.getQuantity() == 0) {
             product.setStatus("Not Available");
         } else if (productRequest.getQuantity() > 0) {
             product.setStatus("Available");
-        } else if (productRequest.getQuantity() < 0) {
+        } else  {
             throw new myCustomException("Quantity  must be positive number only ");
         }
 
         product.setName(productRequest.getName());
         product.setQuantity(productRequest.getQuantity());
         product.setPrice(productRequest.getPrice());
-        product.setCategory(productRequest.getCategory());
         Product savedProduct = productRepository.save(product);
         return convertProductToProductDetails(savedProduct);
 
@@ -99,14 +100,14 @@ public class ProductService {
     public void allUniquecategories(List<Product> allProducts, Report report) {
 
         Set<String> productCategory = new HashSet<String>();
-        List<String> productCategory1 = new ArrayList<>();
+        List<Categories> productCategory1 = new ArrayList<>();
 
         allProducts.forEach(n1 -> {
-            productCategory.add(n1.getCategory());
+            productCategory.add(String.valueOf(n1.getCategory()));
         });
 
         if (!productCategory1.contains(productCategory)) {
-            productCategory1.add(productCategory.toString());
+            productCategory1.add(Categories.valueOf(productCategory.toString()));
         }
         synchronized (report) {
             report.setUniqueCategories(productCategory1);
@@ -272,7 +273,6 @@ public class ProductService {
             product.setName(updatedProduct.getName());
             product.setPrice(updatedProduct.getPrice());
             product.setQuantity(updatedProduct.getQuantity());
-            product.setCategory(updatedProduct.getCategory());
             Product uProduct = productRepository.save(product);
             return convertProductToProductDetails(uProduct);
         } else {

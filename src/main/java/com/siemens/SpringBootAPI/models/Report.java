@@ -1,5 +1,6 @@
 package com.siemens.SpringBootAPI.models;
 
+import com.siemens.SpringBootAPI.FactoryDesign.Categories;
 import lombok.Data;
 
 import java.util.List;
@@ -16,6 +17,6 @@ public class Report {
 
     private Integer totalNoOfOrders;
 
-    private List<String> uniqueCategories;
+    private List<Categories> uniqueCategories;
 
 }
